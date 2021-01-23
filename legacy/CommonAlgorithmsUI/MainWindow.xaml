@@ -1,0 +1,39 @@
+﻿<Window x:Class="CommonAlgorithmsUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommonAlgorithmsUI"
+        mc:Ignorable="d" Title="MainWindow" Height="600" Width="600" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Name="numericalAlgorithms" Click="numericalAlgorithms_Click" Padding="2" Margin="2" Grid.Row="0" Grid.Column="0">Misc numerical algorithms</Button>
+        <Button Name="randomAlgorithms" Click="numericalAlgorithmsWindows_click" Padding="2" Margin="2" Grid.Row="0" Grid.Column="1">Random numbers</Button>
+        <Button Name="hanoiTowerBtn" Click="hanoiTowerBtn_Click" Padding="2" Margin="2" Grid.Row="0" Grid.Column="2">Hanoi tower</Button>
+        <Button Name="KochCurvesBtn" Click="KochCurvesBtn_Click" Padding="2" Margin="2" Grid.Row="0" Grid.Column="3">Koch curves</Button>
+        <Button Name="FractalTrianglesCurvesBtn" Click="FractalTrianglesCurvesBtn_Click" Padding="2" Margin="2" Grid.Row="1" Grid.Column="0">Fractal triangles</Button>
+        <Button Name="EightQueenBtn" Click="EightQueenBtn_Click" Padding="2" Margin="2" Grid.Row="1" Grid.Column="1">Eight queens problem</Button>
+        <Button Name="SelectionPermutation" Click="SelectionPermutation_Click" Padding="2" Margin="2" Grid.Row="1" Grid.Column="2">Selection and permutation</Button>
+        <Button Name="SortSearch" Click="SortSearch_Click" Padding="2" Margin="2" Grid.Row="1" Grid.Column="3">Sorting and searching</Button>
+        <Button Name="String" Click="String_Click" Padding="2" Margin="2" Grid.Row="2" Grid.Column="0">Misc algorithms</Button>
+        <Button Name="BasicGraphs" Click="BasicGraphs_Click" Padding="2" Margin="2" Grid.Row="2" Grid.Column="2">Basic Graph Algorithms</Button>
+        <Button Name="DesicionTrees" Click="DesicionTrees_Click" Padding="2" Margin="2" Grid.Row="2" Grid.Column="1">
+            <StackPanel>
+                <Label>Tic Tac Toe</Label>
+                <Label>(Desicion Trees)</Label>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="CommonAlgorithmsUI.EightQueenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommonAlgorithmsUI"
+        mc:Ignorable="d"
+        Title="EightQueenWindow" Height="500" Width="400" ResizeMode="NoResize">
+    <StackPanel>
+        <TextBlock Margin="5,0,0,0">Select start point(optional) and click Solve to place 8 queens</TextBlock>
+        <WrapPanel Height="40" Margin="5,2,0,0">            
+            <Button Name="solveBtn" Padding="5,0,5,0" Click="solveBtn_Click">solve</Button>
+            <Button Name="startOverBtn" Padding="5,0,5,0" Click="startOverBtn_Click" Margin="5,0,0,0">start over</Button>
+        </WrapPanel>
+        <Grid Rectangle.MouseLeftButtonDown="Grid_MouseLeftButtonDown" Name="boardGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </StackPanel>    
+</Window>

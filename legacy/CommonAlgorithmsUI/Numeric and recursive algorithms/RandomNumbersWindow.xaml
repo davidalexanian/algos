@@ -1,0 +1,101 @@
+﻿<Window x:Class="CommonAlgorithmsUI.RandomNumbersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommonAlgorithmsUI"
+        mc:Ignorable="d"
+        Title="Numerical algorithms" Width="1100" Height="700" ResizeMode="NoResize">
+    <StackPanel>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="190"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!-- creation parameters -->
+            <Label Content="A, seed (ushort, numbers between [1,65,535])" Target="{Binding ElementName=txtBoxA}" Grid.Row="0" Grid.Column="0"></Label>
+            <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox Name="txtBoxA"  Width="90" Height="22"></TextBox>
+                <TextBlock Margin="2,0,0,0"> - </TextBlock>
+                <TextBox Name="txtBoxSeed" Width="90" Height="22"></TextBox>
+            </WrapPanel>
+            <Label Content="B (uint, number between [0-4,294,967,295])" Target="{Binding ElementName=txtBoxB}" Grid.Row="1" Grid.Column="0"></Label>
+            <TextBox Name="txtBoxB" Grid.Row="1" Grid.Column="1" Height="22"></TextBox>
+            <Label Content="M (uint, number between [0-4,294,967,295])" Target="{Binding ElementName=txtBoxM}" Grid.Row="2" Grid.Column="0"></Label>
+            <TextBox Name="txtBoxM" Grid.Row="2" Grid.Column="1" Height="22"></TextBox>
+            <Label Content="N sequence (int, number between [0-2,147,483,647])" Target="{Binding ElementName=txtBoxN}" Grid.Row="3" Grid.Column="0"></Label>
+            <TextBox Name="txtBoxN" Grid.Row="3" Grid.Column="1" Height="22"></TextBox>
+            <Label Content="Min-Max range [-2,147,483,648, 2,147,483,647])" Target="{Binding ElementName=txtBoxMin}" Grid.Row="4" Grid.Column="0"></Label>
+            <WrapPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox Name="txtBoxMin" Width="90" Height="22"></TextBox>
+                <TextBlock Margin="2,0,0,0">-</TextBlock>
+                <TextBox Name="txtBoxMax" Width="90" Margin="2,0,0,0" Height="22"></TextBox>
+            </WrapPanel>
+                    
+            <!-- create & generate buttons-->
+            <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="5">
+                <WrapPanel>
+                    <StackPanel Margin="5,0,5,0">
+                        <RadioButton Name="rdButtonDefault" IsChecked="True">Create with default parameters</RadioButton>
+                        <RadioButton Name="rdButtonParameters" IsChecked="False">Create with given parameters</RadioButton>
+                    </StackPanel>
+                    <Button Name="btnCreate" Padding="5" Click="btnCreate_Click">Create generator</Button>
+                    <Button Name="btnReset" Margin="5,0,0,0" Padding="5" Click="btnReset_Click" IsEnabled="False">Reset</Button>
+                    <Button Name="btnGenerate" Margin="5,0,0,0" Padding="5" Click="btnGenerate_Click" IsEnabled="False">Generate</Button>                            
+                </WrapPanel>
+                <WrapPanel Margin="5,5,0,0">
+                    <GroupBox Header="Generation options">
+                        <StackPanel>
+                            <RadioButton Name="rdBtnGenNext" IsChecked="True">Generate next</RadioButton>
+                            <RadioButton Name="rdBtnGenNextDbl" >Generate next double</RadioButton>
+                            <RadioButton Name="rdBtnGenNextRange" >Generate next from range</RadioButton>
+                            <RadioButton Name="rdBtnGenNextSeq">Generate N sequence</RadioButton>
+                            <RadioButton Name="rdBtnGenNextSeqRange">Generate N sequence from range</RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Margin="10,0,0,0" Header="Result">
+                        <StackPanel>
+                            <WrapPanel>
+                                <TextBlock Foreground="Green" VerticalAlignment="Center" Margin="10,0,5,0">Generated pseudo random variable:</TextBlock>
+                                <TextBox  Width="150" Name="txtBoxGeneratedNumber" Background="Transparent" BorderThickness="0" IsReadOnly="True"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Foreground="Green" VerticalAlignment="Center" Margin="10,0,5,0">Total variables generated:</TextBlock>
+                                <TextBlock Name="txtBlockGeneratedCount" VerticalAlignment="Center" Foreground="Green" FontWeight="Bold" Text="{Binding Path=GeneratedCount}"></TextBlock>
+                            </WrapPanel>
+                            <StackPanel Margin="5,5,0,0" HorizontalAlignment="Left">
+                                <Button Name="btnGenNETRandom" Height="25" Width="250" Click="btnGenNETRandom_Click" ToolTip="Generates N numbers from (min,max) range using .NET standart Random class">N range using System.Random</Button>
+                                <Button Name="btnGenNETCrypto" Height="25" Width="250" Margin="0,2,0,0" Click="btnGenNETCrypto_Click" ToolTip="Generates N numbers from (min,max) range using .NET standart Random class">N range using RNGCryptoServiceProvider</Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </WrapPanel>
+            </StackPanel>                    
+        </Grid>
+                
+        <GroupBox Header="Generated sequence" Margin="0,10,0,0">
+            <StackPanel>
+                <TextBox Name="txtBoxSequence" Height="300" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Background="Azure" TextWrapping="Wrap"/>
+                <WrapPanel Margin="0,5,0,0">
+                    <Button Name="btnContainsDuplicates" Click="btnContainsDuplicates_Click">Find dublicates</Button>
+                    <Button Name="btnRandomize" Margin="5,0,0,0" ToolTip="Write comma seperated list fo any values in the above textbox" Click="btnRandomize_Click">Randomize</Button>
+                    <Button Name="btnClear" Margin="5,0,0,0" Click="btnClear_Click">Clear</Button>
+                    <Button Name="btnDistr" Margin="5,0,0,0" Click="btnDistr_Click">Distribution</Button>
+                    <Button Name="btnDistrClear" Margin="5,0,0,0" Click="btnDistrClear_Click">Clear distribution</Button>
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <Border BorderThickness="1" BorderBrush="Black">
+            <Canvas Height="50" Name="canvas"/>
+        </Border>                    
+    </StackPanel>
+</Window>

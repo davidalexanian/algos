@@ -1,0 +1,18 @@
+﻿<Window x:Class="CommonAlgorithmsUI.MixAlgorithmsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommonAlgorithmsUI"
+        mc:Ignorable="d"
+        Title="Mix Algorithms" Height="600" Width="800">
+    <StackPanel>
+        <WrapPanel VerticalAlignment="Center">
+            <Label>Write an arithemtic expression (can contain +,-,*,/, doesn't cares about parentheses' priorities)</Label>
+            <TextBox Name="ExpressiontxtBox" VerticalAlignment="Center" Width="250" Text="(1-2)+(3*4)/6" Margin="10,0,0,0"></TextBox>
+            <Button Name="EvaluteAritExpression" Margin="10,0,0,0" Click="EvaluteAritExpression_Click">Evaluate</Button>
+            <Label  Margin="10,0,0,0">Result:</Label>
+            <TextBlock Name="EvaluatedExpResult" VerticalAlignment="Center"></TextBlock>
+        </WrapPanel>
+    </StackPanel>
+</Window>

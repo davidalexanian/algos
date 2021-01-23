@@ -1,0 +1,53 @@
+﻿<Window x:Class="CommonAlgorithmsUI.GraphWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommonAlgorithmsUI"
+        mc:Ignorable="d"
+        Title="GraphWindow" Width="1400" Height="650" ResizeMode="NoResize" Background="White">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top">
+            <WrapPanel>
+                <Button Name="GraphGenerateBtn" Margin="5" Click="GraphGenerateBtn_Click">Generate graph</Button>
+                <ComboBox Name="GraphTypeCmbBox" Width="100" SelectedIndex="0" VerticalAlignment="Center" SelectionChanged="GraphTypeCmbBox_SelectionChanged">
+                    <ComboBoxItem Tag="UNDIRECTED">UNDIRECTED</ComboBoxItem>
+                    <ComboBoxItem Tag="DIRECTED">DIRECTED</ComboBoxItem>
+                </ComboBox>
+                <Button Name="RedrawGraphBtn" Margin="5" Click="RedrawGraphBtn_Click">Redraw</Button>
+                <Button Name="ClearGraphBtn"  Margin="5" Click="ClearGraphBtn_Click">Clear Drawing</Button>
+
+                <TextBox Name="GraphGenerateNodeCountTxtBox" Width="20" Margin="5" VerticalAlignment="Center" TextChanged="GraphGenerateNodeCountTxtBox_TextChanged">6</TextBox>
+                <TextBox Name="GraphGenerateLinkCountTxtBox" Width="20" Margin="5" VerticalAlignment="Center">10</TextBox>
+                <Button Name="AddNode" Click="AddNode_Click" Margin="5" Background="Coral">Add Node</Button>
+                <Button Name="AddLink" Click="AddLink_Click" Margin="5" Background="Coral">Add Link</Button>
+                <Button Name="RemoveNode" Click="RemoveNode_Click" Margin="5" Background="Coral">Remove Node</Button>
+                <Button Name="RemoveLink" Click="RemoveLink_Click" Margin="5" Background="Coral">Remove Link</Button>
+                    
+                <Button Name="CanTravelTo" Margin="5" Click="CanTravelTo_Click"  Background="Coral">Can Travel To</Button>
+                <Button Name="CanTravelFrom" Margin="5" Click="CanTravelFrom_Click" Background="Coral">Can Travel From</Button>
+                <TextBox Name="fromNodeIndex" Width="20" Margin="5" VerticalAlignment="Center">1</TextBox>
+                <TextBox Name="toNodeIndex" Width="20" VerticalAlignment="Center">5</TextBox>
+                <Button Name="ConnectionTest" Margin="5" Click="ConnectionTest_Click" Background="Coral">Is Connected</Button>
+                <Label FontWeight="Bold" VerticalAlignment="Center">Info:</Label>
+                <TextBlock Name="infoTxtBlock" VerticalAlignment="Center" Margin="5"></TextBlock>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Name="Traverse" Click="Traverse_Click" Margin="5" Background="Coral">Traverse</Button>
+                <ComboBox Name="TraversalCmbBox" SelectedIndex="0"  Margin="5" Background="Coral">
+                    <ComboBoxItem Tag="DepthFirst">Depth-First</ComboBoxItem>
+                    <ComboBoxItem Tag="BreadthFirst">Breadth-First</ComboBoxItem>
+                </ComboBox>
+                <Button Name="minSpanTree" Margin="5" Background="Coral" Click="minSpanTree_Click">Min Spanning Tree</Button>
+                <Button Name="anyShortestPathFromNode" Margin="5" Background="Coral" Click="anyShortestPathFromNode_Click">Any Path From/To Node</Button>
+            </WrapPanel>
+        </StackPanel>
+            
+
+        <StatusBar DockPanel.Dock="Bottom" Background="White">
+            <Label Name="GraphInfolbl"></Label>
+        </StatusBar>
+
+        <Canvas  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="AliceBlue"  Name="graphCanvas" MouseDown="graphCanvas_MouseDown"/>
+    </DockPanel>
+</Window>

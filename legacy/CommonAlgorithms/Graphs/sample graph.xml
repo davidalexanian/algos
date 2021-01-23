@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  <graph name="SampleDirectedGraph" type="directed" nodeValueType="SomeValueType" linkPropertyType="SomePropertyType">
+    <nodes>
+      <node name="a">
+        <value>
+          serialization of SomeValueType
+        </value>
+      </node>
+    </nodes>
+        
+    <links>
+      <link from="a" to="b">
+        <property>
+          serialization of SomePropertyType
+        </property>
+      </link>
+    </links>
+  </graph>
+-->
+
+<graphs>
+  <graph name="SampleDirectedGraph" type="directed" nodeValueType="string" linkPropertyType="object">
+    <nodes>
+      <node name="a" value="a"/>
+      <node name="b" value="b"/>
+      <node name="c" value="c"/>
+      <node name="d" value="d"/>
+      <node name="e" value="e"/>
+      <node name="f" value="f"/>
+      <node name="g" value="g"/>
+      <node name="h" value="h"/>
+      <node name="l" value="l"/>
+    </nodes>
+    <links>
+      <link from="a" to="b"/>
+      <link from="b" to="c"/>
+      <link from="b" to="d"/>
+      <link from="c" to="g"/>
+      <link from="d" to="l"/>
+      <link from="e" to="a"/>
+      <link from="e" to="h"/>
+      <link from="f" to="b"/>
+      <link from="f" to="h"/>
+      <link from="g" to="b"/>
+      <link from="h" to="l"/>
+      <link from="h" to="d"/>
+      <link from="l" to="a"/>
+      <link from="l" to="f"/>
+    </links>
+  </graph>  
+  <graph name="SampleDirectedGraph" type="directed" nodeValueType="string" linkPropertyType="object">
+    <nodes>
+      <node name="a" value="a"/>
+      <node name="b" value="b"/>
+      <node name="c" value="c"/>
+      <node name="d" value="d"/>
+      <node name="e" value="e"/>
+      <node name="f" value="f"/>
+      <node name="g" value="g"/>
+      <node name="h" value="h"/>
+      <node name="l" value="l"/>        
+    </nodes>
+    <links>
+      <link from="a" to="b"/>
+      <link from="b" to="c"/>
+      <link from="b" to="d"/>
+      <link from="c" to="g"/>
+      <link from="d" to="l"/>
+      <link from="e" to="a"/>
+      <link from="e" to="h"/>
+      <link from="f" to="b"/>
+      <link from="f" to="h"/>
+      <link from="g" to="c"/>
+      <link from="g" to="b"/>
+      <link from="h" to="l"/>
+      <link from="h" to="d"/>
+      <link from="l" to="a"/>
+      <link from="l" to="f"/>
+    </links>
+  </graph>
+</graphs>

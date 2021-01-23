@@ -1,0 +1,81 @@
+﻿<Window x:Class="CommonAlgorithmsUI.NumericAlgorithmsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommonAlgorithmsUI"
+        mc:Ignorable="d"
+        Title="NumericAlgorithmsWindow" Height="550" Width="800">
+    <StackPanel>
+        <GroupBox Header="Sum of numbers of power 2">
+            <WrapPanel>
+                <TextBlock Text="Positive integer N=" VerticalAlignment="Center"></TextBlock>
+                <TextBox Name="NSumofPower2TxtBox" Width="80" Height="20" VerticalAlignment="Top">127</TextBox>
+                <Button  Margin="5,0,0,0" Click="NSumOfPower2Button_Click">sum</Button>
+                <TextBlock Name="NSumOfPower2TxtBlock" Background="Azure" Margin="5,0,0,0" ></TextBlock>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="Exponent" Margin="0,10,0,0">
+            <WrapPanel>
+                <TextBlock VerticalAlignment="Center">a</TextBlock>
+                <TextBox Name="aExpTxtBox" Width="50" Margin="5,0,0,0">17</TextBox>
+                <TextBlock Margin="10,0,0,0" VerticalAlignment="Center">b</TextBlock>
+                <TextBox Name="bExpTxtBox" Width="50" Margin="5,0,0,0">-0.5</TextBox>
+                <Button Margin="5,0,5,0" Click="ExpButton_Click">Exponent by squaring</Button>
+                <Button Margin="5,0,5,0" Click="NRootButton_Click">NRoot from number</Button>
+                <TextBlock VerticalAlignment="Center">Result:</TextBlock>
+                <TextBox Name="resultExpTxtBlock" VerticalAlignment="Center" Margin="5,0,0,0" Background="Transparent" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap"></TextBox>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="GCD, LCM, Exp" Margin="0,10,0,0">
+            <WrapPanel>
+                <TextBlock VerticalAlignment="Center">a</TextBlock>
+                <TextBox Name="aTxtBox" Width="50" Margin="5,0,0,0">21</TextBox>
+                <TextBlock Margin="10,0,0,0" VerticalAlignment="Center">b</TextBlock>
+                <TextBox Name="bTxtBox" Width="50" Margin="5,0,0,0">14</TextBox>
+                <Button Margin="5,0,5,0" Click="GCDButton_Click" ToolTip="Greatest common divisor">GCD(a,b)</Button>
+                <Button Margin="5,0,5,0" Click="LCMButton_Click" ToolTip="Least common multiple">LCM(a,b)</Button>
+                <Button Margin="5,0,5,0" Click="LCMByGCDButton_Click" ToolTip="Least common multiple">LCM(by GCD)</Button>                
+                <TextBlock VerticalAlignment="Center">Result:</TextBlock>
+                <TextBlock Name="resultGCDTxtBlock" Margin="5,0,0,0" Background="Azure" VerticalAlignment="Center"></TextBlock>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="Integers representation" Margin="0,10,0,0">
+            <WrapPanel Grid.Row="2"  Grid.ColumnSpan="2">
+                <TextBlock VerticalAlignment="Center">Convert number</TextBlock>
+                <TextBox Name="numberTxtBox" Margin="5,0,5,0" Width="150">0123456789</TextBox>
+                <TextBlock VerticalAlignment="Center">from base</TextBlock>
+                <TextBox Name="fromBaseTxtBox" Width="40" Grid.Row="2" Grid.Column="1" Margin="3,0,0,0">10</TextBox>
+                <TextBlock Margin="5,0,0,0" VerticalAlignment="Center">to base</TextBlock>
+                <TextBox Name="toBaseTxtBox" Width="40" Margin="3,0,0,0">2</TextBox>
+                <Button Name="ConvertBtn" Click="ConvertBtn_Click">CONVERT</Button>
+                <Button Name="ConvertSwapBtn" Click="ConvertSwapBtn_Click" Margin="5,0,0,0">swap</Button>
+                <TextBox Name="convertResultTxtBlock" VerticalAlignment="Center" Margin="5,0,0,0" Background="Transparent" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap"></TextBox>
+            </WrapPanel>
+            
+        </GroupBox>
+        <GroupBox Header="Primes"  Margin="0,10,0,0">
+            <StackPanel>
+                <WrapPanel>
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,5,0">Primality test</TextBlock>
+                    <TextBox Name="primeTxtBox" Width="100">2731541</TextBox>
+                    <Button Click="primeTestBtn_Click" Margin="5,0,0,0">Is prime (FactorsTrial)</Button>
+                    <Button Click="primeTestBtn2_Click" Margin="5,0,0,0">Is prime (PrimeFactorsTrial)</Button>
+                    <Button Click="primeTestBtn3_Click" Margin="5,0,0,0">Is prime (Heuristic)</Button>
+                    
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,5,0">Result:</TextBlock>
+                    <TextBlock Name="resultPrimeTextBlock" Margin="5,0,0,0" Background="Azure"></TextBlock>
+                </WrapPanel>
+                <WrapPanel Margin="0,5,0,0">
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,5,0">Prime factors</TextBlock>
+                    <TextBox Name="primeFactorsTxtBox" Width="100">2731542</TextBox>
+                    <Button Name="primeFactorsBtn" Click="primeFactorsBtn_Click" Margin="5,0,0,0">Find factors</Button>                    
+                    <Button Name="findPrimesBtn" Click="findPrimesBtn_Click" Margin="5,0,0,0">Find primes up to n</Button>
+                    <TextBlock VerticalAlignment="Center" Margin="5,0,5,0">Result:</TextBlock>
+                    <TextBlock Name="resultPrimeFactorsBlock" Margin="5,0,0,0" Background="Azure"></TextBlock>
+                </WrapPanel>                
+                <TextBox Name="primeNumberstxtBox" Height="200" Background="Azure" Margin="0,5,0,5" VerticalScrollBarVisibility="Visible"></TextBox>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</Window>
